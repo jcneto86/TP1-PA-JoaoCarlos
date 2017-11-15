@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TP1.xcodeproj">
+      location = "self:/Users/jcneto/Documents/Developper/automne_2017/prog_algo/TP1/TP1/TP1.xcodeproj">
    </FileRef>
 </Workspace>
