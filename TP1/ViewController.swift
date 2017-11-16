@@ -9,6 +9,7 @@ import UIKit
 //==========*\•/*=========\
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //==========*\•/*=========\\
+    @IBOutlet weak var labelTranslationResult: UILabel!
     @IBOutlet weak var viewTranslationResult: UIView!
     @IBOutlet weak var labelFrench: UILabel!
     @IBOutlet weak var labelEnglish: UILabel!
@@ -26,6 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var dictionaryReverse = [String: String]()
     var wordFrench: [String]!
     var wordEnglish: [String]!
+    var searchDisplay = String()
     //==========*\•/*=========\\
     var alertController = UIAlertController(title: "", message:
         "", preferredStyle: UIAlertControllerStyle.alert)
@@ -68,17 +70,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     //==========*\•/*=========\\
+    //==========*\•/*=========\\
     @IBAction func saveNewWord(_ sender: UIButton) {
         wordFrench.append(textFieldFrench.text!)
         wordEnglish.append(textFieldEnglish.text!)
         UserDefaults.standard.set(wordFrench, forKey: "french")
         UserDefaults.standard.set(wordEnglish, forKey: "english")
         if languageSelection.selectedSegmentIndex==0 {
+            dictionaryReverse = Dictionary(uniqueKeysWithValues: zip(wordFrench, wordEnglish))
             alertController = UIAlertController(title: "Succès!", message:
                 "Les mots ont été sauvegardés", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
         } else {
+            dictionaryReverse = Dictionary(uniqueKeysWithValues: zip(wordEnglish, wordFrench))
             alertController = UIAlertController(title: "Success!", message:
                 "Words have been saved", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
@@ -95,7 +100,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             modalAddWords.alpha = 0
         }
-        tableListWords.reloadData()
     }
     //==========*\•/*=========\\
     @IBAction func selectionLanguage(_ sender: UISegmentedControl) {
@@ -107,6 +111,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             titleAddWord.text = "Ajouter un mot"
             labelFrench.text = "Français"
             labelEnglish.text = "Anglais"
+            labelTranslationResult.text = "Traduction"
             addNewWord.setTitle("Ajouter les mots", for: .normal)
         } else {
             dictionaryReverse = Dictionary(uniqueKeysWithValues: zip(wordEnglish, wordFrench))
@@ -116,6 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             titleAddWord.text = "Add word"
             labelFrench.text = "French"
             labelEnglish.text = "English"
+            labelTranslationResult.text = "Translation"
             addNewWord.setTitle("Add words", for: .normal)
         }
         tableListWords.reloadData()

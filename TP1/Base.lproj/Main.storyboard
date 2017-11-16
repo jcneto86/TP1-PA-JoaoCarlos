@@ -108,11 +108,22 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wi1-CM-asP" userLabel="viewTranslationResult">
                                 <rect key="frame" x="46" y="257.5" width="283" height="151"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traduction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYV-Jt-toO" userLabel="labelTranslationResult">
+                                        <rect key="frame" x="0.0" y="4.5" width="283" height="39"/>
+                                        <color key="backgroundColor" red="0.98237377410000004" green="0.73282384869999995" blue="0.3472210765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="orU-Rc-mdA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVL-Gz-VDV">
-                                        <rect key="frame" x="0.0" y="30" width="283" height="50"/>
+                                        <rect key="frame" x="0.0" y="48.5" width="283" height="50"/>
                                         <color key="backgroundColor" red="0.98237377405166626" green="0.73282384872436523" blue="0.34722107648849487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Dw2-7G-zRE"/>
+                                            <constraint firstAttribute="width" secondItem="xVL-Gz-VDV" secondAttribute="height" multiplier="283:50" id="wh1-cY-vCz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -130,12 +141,15 @@
                                 <constraints>
                                     <constraint firstItem="ifZ-Jz-mV3" firstAttribute="top" secondItem="wi1-CM-asP" secondAttribute="top" id="1HS-Qa-qak"/>
                                     <constraint firstAttribute="width" secondItem="wi1-CM-asP" secondAttribute="height" multiplier="15:8" id="6pK-pp-Uex"/>
-                                    <constraint firstItem="xVL-Gz-VDV" firstAttribute="top" secondItem="wi1-CM-asP" secondAttribute="top" constant="30" id="IO5-R0-0Ci"/>
-                                    <constraint firstItem="xVL-Gz-VDV" firstAttribute="leading" secondItem="wi1-CM-asP" secondAttribute="leading" id="VR8-oM-FcT"/>
+                                    <constraint firstItem="WYV-Jt-toO" firstAttribute="top" secondItem="wi1-CM-asP" secondAttribute="top" constant="5" id="Fhb-c7-GVm"/>
+                                    <constraint firstItem="WYV-Jt-toO" firstAttribute="leading" secondItem="wi1-CM-asP" secondAttribute="leading" id="IsK-dJ-645"/>
+                                    <constraint firstAttribute="trailing" secondItem="WYV-Jt-toO" secondAttribute="trailing" id="TDu-jl-rTP"/>
+                                    <constraint firstItem="xVL-Gz-VDV" firstAttribute="top" secondItem="WYV-Jt-toO" secondAttribute="bottom" constant="5" id="Tvc-73-L2a"/>
                                     <constraint firstAttribute="bottom" secondItem="ifZ-Jz-mV3" secondAttribute="bottom" id="d3k-Rk-UpB"/>
                                     <constraint firstItem="ifZ-Jz-mV3" firstAttribute="leading" secondItem="wi1-CM-asP" secondAttribute="leading" id="eW4-ld-1Rm"/>
-                                    <constraint firstAttribute="trailing" secondItem="xVL-Gz-VDV" secondAttribute="trailing" id="g1L-R9-uya"/>
+                                    <constraint firstAttribute="trailing" secondItem="xVL-Gz-VDV" secondAttribute="trailing" id="jJE-62-CWy"/>
                                     <constraint firstAttribute="trailing" secondItem="ifZ-Jz-mV3" secondAttribute="trailing" id="ozP-dB-3a9"/>
+                                    <constraint firstItem="xVL-Gz-VDV" firstAttribute="leading" secondItem="wi1-CM-asP" secondAttribute="leading" id="vne-71-Sh7"/>
                                 </constraints>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" restorationIdentifier="modalAddWords" translatesAutoresizingMaskIntoConstraints="NO" id="9Ux-Es-cCH" userLabel="modalAddWords">
@@ -275,6 +289,7 @@
                         <outlet property="addNewWord" destination="4ag-QU-Smt" id="SUW-gW-bGx"/>
                         <outlet property="labelEnglish" destination="fJI-bg-PKt" id="1gh-g0-faP"/>
                         <outlet property="labelFrench" destination="SyL-hL-SZb" id="ObO-v0-mon"/>
+                        <outlet property="labelTranslationResult" destination="WYV-Jt-toO" id="0o8-RM-mnS"/>
                         <outlet property="languageSelection" destination="Iet-TD-Qzq" id="Ow7-yP-D0F"/>
                         <outlet property="modalAddWords" destination="9Ux-Es-cCH" id="q21-ua-IyJ"/>
                         <outlet property="tableListWords" destination="44x-pn-Eak" id="4FR-80-nUG"/>
